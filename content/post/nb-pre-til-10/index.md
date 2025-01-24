@@ -14,7 +14,7 @@ tags:
 
 ## 사전캠프 달리기반 Java 응용하기
 
-## Lv. 1 랜덤 닉네임 생성기
+### Lv. 1 랜덤 닉네임 생성기
 ``` java
 package level1;
 
