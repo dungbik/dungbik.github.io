@@ -1,0 +1,623 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>본캠프 on Dungbik Blog</title><link>https://dungbik.github.io/tags/%EB%B3%B8%EC%BA%A0%ED%94%84/</link><description>Recent content in 본캠프 on Dungbik Blog</description><generator>Hugo -- gohugo.io</generator><language>ko-kr</language><lastBuildDate>Thu, 20 Feb 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://dungbik.github.io/tags/%EB%B3%B8%EC%BA%A0%ED%94%84/index.xml" rel="self" type="application/rss+xml"/><item><title>내일배움캠프 - 4일차</title><link>https://dungbik.github.io/p/nb-til-4/</link><pubDate>Thu, 20 Feb 2025 00:00:00 +0000</pubDate><guid>https://dungbik.github.io/p/nb-til-4/</guid><description>&lt;h2 id="til-today-i-learned">TIL (Today I Learned)
+&lt;/h2>&lt;p>오늘 배운 것을 작성하는 것&lt;/p>
+&lt;h3 id="써야하는-이유">써야하는 이유
+&lt;/h3>&lt;ul>
+&lt;li>기성용
+&lt;ul>
+&lt;li>&lt;strong>기&lt;/strong>록: 내가 무엇을 배웠는지 기록&lt;/li>
+&lt;li>&lt;strong>성&lt;/strong>장: 학습한 것을 정리하며 이해도를 높이고 복습도 가능하다.&lt;/li>
+&lt;li>활&lt;strong>용&lt;/strong>: 비슷한 문제 발생 시 활용할 수 있다.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>취업: 현재 목표
+&lt;ul>
+&lt;li>취업을 위해서는
+&lt;ul>
+&lt;li>현재: 내가 남들보다 더 열심히 하고 잘한다는 것을 &lt;strong>증명&lt;/strong> 해야 함&lt;/li>
+&lt;li>미래: 내가 남들보다 회사에 도움이 될 사람이라는 것을 &lt;strong>증명&lt;/strong> 해야 함&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>면접관 입장
+&lt;ul>
+&lt;li>신입 개발자 -&amp;gt; 너무 몰라서 다 가르쳐야하는거 아니야?&lt;/li>
+&lt;li>프로젝트 -&amp;gt; 본인이 짠 코드가 맞을까?&lt;br>
+=&amp;gt; 신입이 가장 빠르게 경험과 실력을 증명하는 법 =&amp;gt; TIL&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="작성법">작성법
+&lt;/h3>&lt;ul>
+&lt;li>완벽 X 정답 X&lt;/li>
+&lt;li>하루에 한 번 일단 작성하기&lt;/li>
+&lt;li>쓰다 보면 더 잘 쓰고 싶은 생각이 들며, 그때 &lt;strong>꼼꼼히&lt;/strong>, &lt;strong>제대로&lt;/strong> 작성하면 된다.&lt;/li>
+&lt;li>주제 정하기 : 오늘 배우고 느낀 것을 작성하면 된다.
+&lt;ol>
+&lt;li>강의 내용 정리하기 (초기)
+&lt;ul>
+&lt;li>오늘 배운 것은 무엇인가?&lt;/li>
+&lt;li>개념 정리&lt;/li>
+&lt;li>해당 개념이 필요한 이유&lt;/li>
+&lt;li>사용법&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>개발 단계 정리&lt;/li>
+&lt;li>하루 회고
+&lt;ul>
+&lt;li>일기처럼 편하게 작성한다.
+&lt;ul>
+&lt;li>오늘 있었던 일을 정리한다.&lt;/li>
+&lt;li>오늘 발생했던 일에 대한 느낀 점을 작성한다.&lt;/li>
+&lt;li>문제가 있었다면 앞으로 개선 방안을 정리한다.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>문제 해결 과정 (권장)
+&lt;ul>
+&lt;li>발생한 문제(에러 및 버그)가 무엇인지 작성한다.&lt;/li>
+&lt;li>기존에 작성하려던 코드를 작성한다.&lt;/li>
+&lt;li>위 코드에서 문제점을 분석하고 가설을 세운다.&lt;/li>
+&lt;li>문제의 원인이 무엇이고 어떻게 해결했는지 작성한다.&lt;/li>
+&lt;li>문제 해결 과정 중 느낀점이 있으면 작성한다.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>TIL 부담 줄이는 법
+&lt;ul>
+&lt;li>공부, 프로젝트 진행 중 모든 생각과 과정을 동시에 기록하기&lt;/li>
+&lt;li>공부, 프로젝트 진행 중 대충 쓰고 나중에 정리&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="참고할만한-자료">참고할만한 자료
+&lt;/h3>&lt;ul>
+&lt;li>개념 정리: &lt;a class="link" href="https://velog.io/@alicia-mkkim/TlL-4-" target="_blank" rel="noopener"
+>https://velog.io/@alicia-mkkim/TlL-4-&lt;/a>변수가-필요한-이유와-선언하는-방법&lt;/li>
+&lt;li>기능 개발 단계 정리: &lt;a class="link" href="https://daeguowl.tistory.com/130" target="_blank" rel="noopener"
+>https://daeguowl.tistory.com/130&lt;/a>&lt;/li>
+&lt;li>회고: &lt;a class="link" href="https://leejincha.tistory.com/355" target="_blank" rel="noopener"
+>https://leejincha.tistory.com/355&lt;/a>&lt;/li>
+&lt;li>문제 해결 과정: &lt;a class="link" href="https://daeguowl.tistory.com/171" target="_blank" rel="noopener"
+>https://daeguowl.tistory.com/171&lt;/a>&lt;/li>
+&lt;li>일단 작성하기: &lt;a class="link" href="https://wayhome25.github.io/" target="_blank" rel="noopener"
+>https://wayhome25.github.io/&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>내일배움캠프 - 3일차</title><link>https://dungbik.github.io/p/nb-til-3/</link><pubDate>Wed, 19 Feb 2025 00:00:00 +0000</pubDate><guid>https://dungbik.github.io/p/nb-til-3/</guid><description>&lt;h2 id="spring-transaction">Spring Transaction
+&lt;/h2>&lt;p>&lt;img src="https://dungbik.github.io/p/nb-til-3/image.png"
+width="1269"
+height="708"
+srcset="https://dungbik.github.io/p/nb-til-3/image_hu_5aceb2eae8612bcb.png 480w, https://dungbik.github.io/p/nb-til-3/image_hu_421c205e25b6be3d.png 1024w"
+loading="lazy"
+alt="Spring Transaction AOP (@Transactional을 사용했을 때 동작)"
+class="gallery-image"
+data-flex-grow="179"
+data-flex-basis="430px"
+>&lt;/p>
+&lt;h3 id="선언적-트랜잭션-관리-vs-프로그래밍-방식의-트랜잭션-관리">선언적 트랜잭션 관리 vs 프로그래밍 방식의 트랜잭션 관리
+&lt;/h3>&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>선언적 트랜잭션 관리(Declarative Transaction Management)&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>@Transactional&lt;/strong> 애너테이션 하나만 선언해서 편리하게 트랜잭션을 적용하는 것&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>프로그래밍 방식의 트랜잭션 관리(programmatic Transaction Management)&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>트랜잭션 매니저 또는 트랜잭션 탬플릿 등을 사용해서 트랜잭션 관련 코드를 직접 작성하는 것&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>선언적 트랜잭션 관리&lt;/strong> 가 훨씬 간편하고 실용적이기 때문에 실무에서는 대부분 &lt;strong>선언적 트랜잭션 관리&lt;/strong> 를 사용한다.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="spring-boot-auto-configuration">Spring Boot Auto Configuration
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-java" data-lang="java">&lt;span class="line">&lt;span class="cl">&lt;span class="nd">@Bean&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">DataSource&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nf">dataSource&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">return&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">DriverManagerDataSource&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">URL&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">USERNAME&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">PASSWORD&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nd">@Bean&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="n">PlatformTransactionManager&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nf">transactionManager&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">return&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">DataSourceTransactionManager&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">dataSource&lt;/span>&lt;span class="p">());&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>스프링 부트가 등장하기 이전에는 &lt;strong>DataSource&lt;/strong> 와 &lt;strong>TransactionManager&lt;/strong> 를 개발자가 직접 스프링 빈으로 등록해서 사용했다. (옛날에는 XML로 스프링 빈을 등록하고 관리했다.)&lt;/li>
+&lt;li>사용자가 등록한 빈은은 스프링 부트는 자동으로 등록하지 않는다.&lt;/li>
+&lt;li>&lt;strong>application.yml&lt;/strong> 또는 &lt;strong>application.properties&lt;/strong> 에 있는 속성을 사용하는 경우도 있다.&lt;/li>
+&lt;/ul>
+&lt;h4 id="datasource-auto-configuration">DataSource Auto Configuration
+&lt;/h4>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yml" data-lang="yml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">spring&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">datasource&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">url&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">jdbc:h2:tcp://localhost/~/tes&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">username&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">sa&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">password&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>스프링 부트가 기본으로 생성하는 DataSource는 커넥션 풀을 제공하는 HikariDataSource 이다.&lt;/li>
+&lt;li>spring.datasource.url 속성이 없으면 &lt;strong>내장 데이터베이스(메모리 DB)&lt;/strong> 를 생성하려고 시도한다.&lt;/li>
+&lt;/ul>
+&lt;h4 id="transaction-manager-auto-configuration">Transaction Manager Auto Configuration
+&lt;/h4>&lt;ul>
+&lt;li>스프링 부트는 현재 등록된 라이브러리를 보고 적절한 트랜잭션 매니저를 자동으로 선택하여 스프링 빈에 등록한다.&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="exception">Exception
+&lt;/h2>&lt;h3 id="예외-계층">예외 계층
+&lt;/h3>&lt;p>&lt;img src="https://dungbik.github.io/p/nb-til-3/image-1.png"
+width="1084"
+height="626"
+srcset="https://dungbik.github.io/p/nb-til-3/image-1_hu_6cad03493955827b.png 480w, https://dungbik.github.io/p/nb-til-3/image-1_hu_41964d4222513c73.png 1024w"
+loading="lazy"
+alt="예외 계층"
+class="gallery-image"
+data-flex-grow="173"
+data-flex-basis="415px"
+>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Error&lt;/strong>
+&lt;ul>
+&lt;li>메모리 부족이나 심각한 시스템 오류와 같이 애플리케이션이 복구 불가능한 시스템 예외이다. 개발자는 이 예외를 잡으려고 해서는 안된다.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>Exception&lt;/strong>
+&lt;ul>
+&lt;li>애플리케이션 로직에서 사용할 수 있는 실질적인 최상위 예외이다.&lt;/li>
+&lt;li>&lt;strong>Exception&lt;/strong> 과 그 하위 예외는 모두 컴파일러가 체크하는 체크 예외이다. 단 &lt;strong>RuntimeException&lt;/strong> 은 예외로 한다.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>RuntimeException&lt;/strong>
+&lt;ul>
+&lt;li>컴파일러가 체크하지 않는 언체크 예외이다.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="예외-기본-규칙">예외 기본 규칙
+&lt;/h3>&lt;ol>
+&lt;li>예외는 잡아서 처리하거나 던져야 한다.&lt;/li>
+&lt;li>예외를 잡거나 던질 때 지정한 예외뿐만 아니라 그 예외의 자식들도 함께 처리된다.&lt;/li>
+&lt;/ol>
+&lt;h4 id="예외를-처리하지-못하고-계속-던지면-어떻게-될까">예외를 처리하지 못하고 계속 던지면 어떻게 될까?
+&lt;/h4>&lt;ul>
+&lt;li>자바 main() 쓰레드의 경우 예외 로그를 출력하면서 시스템이 종료된다.&lt;/li>
+&lt;li>웹 애플리케이션의 경우 여러 사용자의 요청을 처리하기 때문에 하나의 예외 때문에 시스템이 종료되면 안된다. WAS가 해당 예외를 받아서 처리하는데, 주로 사용자에게 개발자가 지정한 오류 페이지를 보여준다.&lt;/li>
+&lt;/ul>
+&lt;h3 id="체크-예외-언체크-예외">체크 예외, 언체크 예외
+&lt;/h3>&lt;h4 id="체크-예외">체크 예외
+&lt;/h4>&lt;ul>
+&lt;li>체크 예외는 잡아서 처리하거나 밖으로 던지도록 선언해야한다. 그렇지 않으면 컴파일러 오류가 발생한다.&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-java" data-lang="java">&lt;span class="line">&lt;span class="cl">&lt;span class="k">try&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">catch&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">Exception&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">e&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>체크 예외를 잡아서 처리하려면 try catch 문을 사용한다.&lt;/li>
+&lt;li>catch 는 해당 타입과 그 하위 타입 모두 잡을 수 있다.&lt;/li>
+&lt;li>장점: 개발자가 실수로 예외를 누락하지 않도록 컴파일러를 통해 문제를 잡아주는 안전장치이다.&lt;/li>
+&lt;li>단점: 크게 신경쓰고 싶지 않은 예외까지 모두 챙겨야 한다. 추가로 의존관계에 따른 단점도 있다.&lt;/li>
+&lt;/ul>
+&lt;h4 id="언체크-예외">언체크 예외
+&lt;/h4>&lt;ul>
+&lt;li>컴파일러가 예외를 체크하지 않는다.&lt;/li>
+&lt;li>예외를 던지는 &lt;strong>throw 예외&lt;/strong> 를 선언하지 않고 생략할 수 있다. 이 경우 자동으로 예외를 던진다.&lt;/li>
+&lt;li>장점: 신경쓰고 싶지 않은 언체크 예외를 무시할 수 있다. 추가로 의존관계를 참조하지 않아도 된다.&lt;/li>
+&lt;li>단점: 개발자가 실수로 예외 처리를 누락할 수 있다.&lt;/li>
+&lt;/ul>
+&lt;h4 id="체크-예외-활용">체크 예외 활용
+&lt;/h4>&lt;ul>
+&lt;li>기본적으로 언체크(런타임) 예외를 사용하자.&lt;/li>
+&lt;li>체크 예외는 비즈니스 로직상 의도적으로 던지는 예외에만 사용하자.
+&lt;ul>
+&lt;li>해당 예외를 잡아서 반드시 처리해야 하는 문제일 때만 사용해야 한다.&lt;/li>
+&lt;li>ex)
+&lt;ul>
+&lt;li>계좌 이체 실패 예외&lt;/li>
+&lt;li>결제시 포인트 부족 예외&lt;/li>
+&lt;li>로그인 ID, PW 불일치 예외&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>물론 이 경우에도 100% 체크 예외로 만들어야 하는 것은 아니다. 다만 매우 심각한 문제는 개발자가 실수로 예외를 놓치면 안된다. 이 경우 체크 예외로 만들어두면 컴파일러를 통해 놓친 예외를 인지할 수 있다.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h4 id="체크-예외의-문제점">체크 예외의 문제점
+&lt;/h4>&lt;p>&lt;img src="https://dungbik.github.io/p/nb-til-3/image-2.png"
+width="1042"
+height="315"
+srcset="https://dungbik.github.io/p/nb-til-3/image-2_hu_3f7476ef758d05be.png 480w, https://dungbik.github.io/p/nb-til-3/image-2_hu_6310d142237da44d.png 1024w"
+loading="lazy"
+alt="체크 예외의 문제점"
+class="gallery-image"
+data-flex-grow="330"
+data-flex-basis="793px"
+>&lt;/p>
+&lt;ul>
+&lt;li>Repository는 DB에 접근해서 데이터를 저장하고 관리한다. 여기서는 &lt;strong>SQLException&lt;/strong> 체크 예외를 던진다.&lt;/li>
+&lt;li>NetworkClient는 외부 네트워크에 접속해서 어떤 기능을 처리하는 객체이다. 여기서는 &lt;strong>ConnectException&lt;/strong> 체크 예외를 던진다.&lt;/li>
+&lt;li>Service는 Repository와 NetworkClient 둘 다 호출한다.&lt;/li>
+&lt;li>Service는 &lt;strong>SQLException&lt;/strong> 과 &lt;strong>ConnectException&lt;/strong> 을 처리할 수 없으므로 둘 다 밖으로 던진다.
+&lt;ul>
+&lt;li>ConnectException 처럼 연결이 실패하거나 SQLException 처럼 데이터베이스에서 발생하는 문제처럼 심각한 문제들은 대부분 애플리케이션 로직에서 처리할 방법이 없다.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Controller도 두 예외를 처리할 방법이 없어서 밖으로 던진다.&lt;/li>
+&lt;li>웹 애플리케이션이라면 Servlet의 오류 페이지나 스프링 MVC가 제공하는 ControllerAdvice에서 이런 예외를 공통 처리한다.
+&lt;ul>
+&lt;li>이런 문제들은 보통 사용자에게 어떤 문제가 발생했는지 자세히 설명하기 어렵기 때문에 일반적인 오류 메시지를 보여준다. (자세히 알려주어도 사용자는 알 수 없고 보안에 문제가 될 수 있다.)&lt;/li>
+&lt;li>API라면 보통 Internal Server Error 를 사용해서 응답을 내려준다.&lt;/li>
+&lt;li>이렇게 해결이 불가능한 공통 예외는 별도의 오류 로그를 남기고 개발자가 오류를 빨리 인지할 수 있도록 메일, 알림 등을 통해서 전달 받아야한다. SQLException 이 잘됫된 SQL을 작성해서 발생했다면 수정해서 배포하기 전까지 같은 문제가 계속 있다.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h5 id="복구-불가능한-예외">복구 불가능한 예외
+&lt;/h5>&lt;p>심각한 문제들은 대부분 복구가 불가능하다. 특히나 대부분의 Service나 Controller에서는 이런 문제를 해결할 수 없다.
+따라서 이런 문제들은 일관성 있게 공통으로 처리해야 한다. 오류 로그를 남기고 개발자가 해당 오류를 빠르게 인지하는 것이 필요하다.
+Servlet Filter, Spring Intercepter, Spring ControllerAdvice를 사용하면 이런 부분을 깔끔하게 공통으로 해결할 수 있다.&lt;/p>
+&lt;h5 id="의존-관계에-대한-문제">의존 관계에 대한 문제
+&lt;/h5>&lt;p>대부분의 예외는 복구 불가능한 예외이다. 그런데 체크 예외이기 때문에 Controller나 Service 입장에서는 처리할 수 없어도 어쩔 수 없이 &lt;strong>throws 예외&lt;/strong> 를 통해 던지는 예외를 선언해야한다.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-java" data-lang="java">&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="kd">class&lt;/span> &lt;span class="nc">Controller&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="kd">public&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kt">void&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nf">request&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kd">throws&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">SQLException&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">ConnectException&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">service&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">logic&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="kd">class&lt;/span> &lt;span class="nc">Service&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="kd">public&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kt">void&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nf">logic&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kd">throws&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">SQLException&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">ConnectException&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">repository&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">call&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">networkClient&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">call&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Service, Controller 에서 SQLException 을 의존하기 때문에 문제가 된다.&lt;/p>
+&lt;p>향후 Repository를 JDBC 기술이 아닌 다른 기술로 변경한다면 SQLException 에 의존하던 모든 Service, Controller의 코드를 수정해야한다. Service나 Controller 입장에서는 어차피 본인이 처리할 수도 없는 예외를 읜존해야 하는 큰 단점이 발생한다.
+결과적으로 OCP, DI를 통해 클라이언트 코드의 변경없이 대상 구현체를 변경할 수 있다는 장점이 체크 예외 때문에 발목을 잡게 된다.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-java" data-lang="java">&lt;span class="line">&lt;span class="cl">&lt;span class="kt">void&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nf">method&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kd">throws&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">Exception&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{...}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>이를 해결하려면 최상위 예외인 Exception을 던져도 문제를 해결할 수 있다.
+하지만 다른 체크 예외를 체크할 수 있는 기능이 무효화되고, 중요한 체크 예외를 다 놓치게된다.
+이렇게 하면 모든 예외를 다 던지기 때문에 체크 예외를 의도한대로 사용하는 것이 아니다.
+따라서 꼭 필요한 경우가 아니면 쓰지 않는 것이 좋다.&lt;/p>
+&lt;h4 id="언체크-예외-활용">언체크 예외 활용
+&lt;/h4>&lt;p>&lt;img src="https://dungbik.github.io/p/nb-til-3/image-3.png"
+width="1000"
+height="336"
+srcset="https://dungbik.github.io/p/nb-til-3/image-3_hu_24d9a0129b7aba25.png 480w, https://dungbik.github.io/p/nb-til-3/image-3_hu_a02e078aabb33d43.png 1024w"
+loading="lazy"
+alt="런타임 예외 사용"
+class="gallery-image"
+data-flex-grow="297"
+data-flex-basis="714px"
+>&lt;/p>
+&lt;p>시스템에서 발생한 예외는 대부분 복구 불가능 예외이다.
+런타임 예외를 사용하면 Service나 Controller가 이런 복구 불가능한 예외를 신경쓰지 않아도 된다.
+물론 이렇게 복구 불가능한 예외는 일관성있게 공통으로 처리해야한다.&lt;/p>
+&lt;p>런타임 예외는 해당 객체가 처리할 수 없는 예외는 무시하면 된다. 따라서 체크 예외처럼 강제로 의존하지 않아도 된다.&lt;/p>
+&lt;p>런타임 예외는 문서화를 잘해야 한다. 또는 코드에 &lt;strong>throws 런타임 예외&lt;/strong> 를 남겨서 중요한 예외를 인지할 수 있게 해준다.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-java" data-lang="java">&lt;span class="line">&lt;span class="cl">&lt;span class="cm">/**
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cm"> * Make an instance managed and persistent.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cm"> * @param entity entity instance
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cm"> * @throws EntityExistsException if the entity already exists.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cm"> * @throws IllegalArgumentException if the instance is not an
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cm"> * entity
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cm"> * @throws TransactionRequiredException if there is no transaction when
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cm"> * invoked on a container-managed entity manager of that is of type
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cm"> * &amp;lt;code&amp;gt;PersistenceContextType.TRANSACTION&amp;lt;/code&amp;gt;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cm"> */&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="kd">public&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kt">void&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nf">persist&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">Object&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">entity&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-java" data-lang="java">&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="cm">/**
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cm">* Issue a single SQL execute, typically a DDL statement.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cm">* @param sql static SQL to execute
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cm">* @throws DataAccessException if there is any problem
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cm">*/&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="kt">void&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nf">execute&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">String&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">sql&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kd">throws&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">DataAccessException&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="예외-포함과-stacktrace">예외 포함과 StackTrace
+&lt;/h3>&lt;p>예외를 전환할 때는 꼭 기존 예외를 포함해야 한다. 그렇지 않으면 StackTrace를 확인할 때 심각한 문제가 발생한다.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-java" data-lang="java">&lt;span class="line">&lt;span class="cl">&lt;span class="kt">void&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nf">printEx&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">Controller&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">controller&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">Controller&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">try&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">controller&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">request&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">catch&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">Exception&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">e&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="c1">//e.printStackTrace(); // 실무에서 사용 X&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">log&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">info&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;ex&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">e&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c1">// 로그에 StackTrace를 출력할 수 있다.&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-java" data-lang="java">&lt;span class="line">&lt;span class="cl">&lt;span class="kd">public&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kt">void&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nf">call&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">try&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">runSQL&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">catch&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">SQLException&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">e&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">throw&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">RuntimeSQLException&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">e&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c1">// 기존 예외(e) 포함&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>예외를 포함하지 않으면 기존에 발생한 예외와 StackTrace를 확인할 수 없어 원인을 알 수 없는 심각한 문제가 발생한다.&lt;/p>
+&lt;h3 id="spring-예외-추상화">Spring 예외 추상화
+&lt;/h3>&lt;p>&lt;img src="https://dungbik.github.io/p/nb-til-3/image-4.png"
+width="1057"
+height="759"
+srcset="https://dungbik.github.io/p/nb-til-3/image-4_hu_5a84926481fec31f.png 480w, https://dungbik.github.io/p/nb-til-3/image-4_hu_cd8cf63af445a555.png 1024w"
+loading="lazy"
+alt="Spring 데이터 접근 예외 계층(일부 계층 생략)"
+class="gallery-image"
+data-flex-grow="139"
+data-flex-basis="334px"
+>&lt;/p>
+&lt;ul>
+&lt;li>Spring은 데이터 접근 계층에 대한 수십 가지 예외를 정리해서 일관된 예외 계층을 제공한다.&lt;/li>
+&lt;li>각각의 예외는 특정 기술에 종속적이지 않게 설계되어있다. 따라서 Service 계층에서도 사용 가능하다.&lt;/li>
+&lt;li>기술에 종속적인 예외를 Spring이 제공하는 예외로 변환해주는 역할도 Spring이 제공한다.&lt;/li>
+&lt;li>크게 &lt;strong>NonTransient&lt;/strong> 예외와 &lt;strong>Transient&lt;/strong> 예외이다.
+&lt;ul>
+&lt;li>&lt;strong>Transient&lt;/strong> 예외들은 일시적으로 발생한 예외로 다시 시도했을 때 성공할 가능성이 있다.&lt;/li>
+&lt;li>&lt;strong>NonTransient&lt;/strong> 예외들은 일시적이지 않다는 뜻으로 다시 시도해도 실패한다.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h4 id="예외-변환기">예외 변환기
+&lt;/h4>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-java" data-lang="java">&lt;span class="line">&lt;span class="cl">&lt;span class="nd">@Test&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="kt">void&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nf">exceptionTranslator&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">String&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">sql&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s">&amp;#34;select bad grammar&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">try&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">Connection&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">con&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">dataSource&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">getConnection&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">PreparedStatement&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">stmt&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">con&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">prepareStatement&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">sql&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">stmt&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">executeQuery&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">catch&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">SQLException&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">e&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">assertThat&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">e&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">getErrorCode&lt;/span>&lt;span class="p">()).&lt;/span>&lt;span class="na">isEqualTo&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">42122&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="c1">//org.springframework.jdbc.support.sql-error-codes.xml&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">SQLExceptionTranslator&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">exTranslator&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">SQLErrorCodeSQLExceptionTranslator&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">dataSource&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="c1">//org.springframework.jdbc.BadSqlGrammarException&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">DataAccessException&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">resultEx&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">exTranslator&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">translate&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;select&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">sql&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">e&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">log&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">info&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;resultEx&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">resultEx&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">assertThat&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">resultEx&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">getClass&lt;/span>&lt;span class="p">()).&lt;/span>&lt;span class="na">isEqualTo&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">BadSqlGrammarException&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">class&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>Spring은 데이터베이스에서 발생한 오류 코드를 Spring이 정의한 예외로 자동으로 변환해주는 변환기를 제공한다.&lt;/li>
+&lt;li>변환할 때 아래의 &lt;strong>org.springframework.jdbc.support.sql-error-codes.xml&lt;/strong> 파일을 이용한다.&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-xml" data-lang="xml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;bean&lt;/span> &lt;span class="na">id=&lt;/span>&lt;span class="s">&amp;#34;H2&amp;#34;&lt;/span> &lt;span class="na">class=&lt;/span>&lt;span class="s">&amp;#34;org.springframework.jdbc.support.SQLErrorCodes&amp;#34;&lt;/span>&lt;span class="nt">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;property&lt;/span> &lt;span class="na">name=&lt;/span>&lt;span class="s">&amp;#34;badSqlGrammarCodes&amp;#34;&lt;/span>&lt;span class="nt">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;value&amp;gt;&lt;/span>42000,42001,42101,42102,42111,42112,42121,42122,42132&lt;span class="nt">&amp;lt;/value&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;/property&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;property&lt;/span> &lt;span class="na">name=&lt;/span>&lt;span class="s">&amp;#34;duplicateKeyCodes&amp;#34;&lt;/span>&lt;span class="nt">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;value&amp;gt;&lt;/span>23001,23505&lt;span class="nt">&amp;lt;/value&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;/property&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;/bean&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;bean&lt;/span> &lt;span class="na">id=&lt;/span>&lt;span class="s">&amp;#34;MySQL&amp;#34;&lt;/span> &lt;span class="na">class=&lt;/span>&lt;span class="s">&amp;#34;org.springframework.jdbc.support.SQLErrorCodes&amp;#34;&lt;/span>&lt;span class="nt">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;property&lt;/span> &lt;span class="na">name=&lt;/span>&lt;span class="s">&amp;#34;badSqlGrammarCodes&amp;#34;&lt;/span>&lt;span class="nt">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;value&amp;gt;&lt;/span>1054,1064,1146&lt;span class="nt">&amp;lt;/value&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;/property&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;property&lt;/span> &lt;span class="na">name=&lt;/span>&lt;span class="s">&amp;#34;duplicateKeyCodes&amp;#34;&lt;/span>&lt;span class="nt">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;value&amp;gt;&lt;/span>1062&lt;span class="nt">&amp;lt;/value&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;lt;/property&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">&amp;lt;/bean&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>Spring 예외 추상화 덕분에 특정 기술에 종속적이지 않게 되었다.&lt;/li>
+&lt;li>물론 Spring이 제공하는 예외를 사용하기 때문에 Spring에 대한 기술 종속성을 발생한다.
+&lt;ul>
+&lt;li>Spring에 대한 기술 종속성까지 완전히 제거하려면 예외를 모두 직접 정의하고 예외 변환도 직접 하면 되지만, 실용적인 방법은 아니다.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item><item><title>내일배움캠프 - 1일차</title><link>https://dungbik.github.io/p/nb-til-1/</link><pubDate>Mon, 17 Feb 2025 00:00:00 +0000</pubDate><guid>https://dungbik.github.io/p/nb-til-1/</guid><description>&lt;h2 id="git-github">Git, GitHub
+&lt;/h2>&lt;ul>
+&lt;li>Git: 변경 내용을 추적하고 관리하는 분산 버전 관리(형상 관리) 시스템&lt;/li>
+&lt;li>GitHub: Git을 기반으로 하는 웹 호스팅 서비스&lt;/li>
+&lt;/ul>
+&lt;h3 id="git-workflow">Git Workflow
+&lt;/h3>&lt;img src = "image-2.png" width = "70%" height = "70%">
+&lt;h3 id="git-명령어">Git 명령어
+&lt;/h3>&lt;ul>
+&lt;li>init: 새로운 Git Repository를 생성&lt;/li>
+&lt;li>status: Local Repository의 상황을 확인&lt;/li>
+&lt;li>add: Working Directory 내의 변경 내용을 Staging Area에 추가 (기록할 변경 내용을 추가)&lt;/li>
+&lt;li>commit: Staging Area에 올라온 변경 내용을 Local Repository에 기록 (추가된 변경 내용을 실제로 기록)&lt;/li>
+&lt;li>log: Commit Log를 확인&lt;/li>
+&lt;li>reset: 과거의 Commit으로 이동&lt;/li>
+&lt;li>reflog: Local Repository에서 HEAD의 업데이트 기록을 확인&lt;/li>
+&lt;li>push: Local Repository의 변경 내용을 Remote Repository에 반영&lt;/li>
+&lt;li>remote
+&lt;ul>
+&lt;li>-v: Git Remote Aliases 확인&lt;/li>
+&lt;li>add [alias] [url]: Git Remote Alias 추가&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>clone [url] [dir]: Remote Repository의 내용을 로컬에 복제&lt;/li>
+&lt;li>pull: Remote Repository의 변경 내용을 Local Repository에 반영&lt;/li>
+&lt;/ul>
+&lt;h3 id="충돌-해결">충돌 해결
+&lt;/h3>&lt;p>&lt;img src="https://dungbik.github.io/p/nb-til-1/image.png"
+width="2052"
+height="967"
+srcset="https://dungbik.github.io/p/nb-til-1/image_hu_4fdc498f5d9215e9.png 480w, https://dungbik.github.io/p/nb-til-1/image_hu_cd012b206660116f.png 1024w"
+loading="lazy"
+alt="pull error message"
+class="gallery-image"
+data-flex-grow="212"
+data-flex-basis="509px"
+>&lt;/p>
+&lt;h4 id="git-config-pullrebase-false">git config pull.rebase false
+&lt;/h4>&lt;p>rebase를 하지 않도록 설정하여 merge를 수행한다.&lt;/p>
+&lt;p>&lt;img src="https://dungbik.github.io/p/nb-til-1/image-1.png"
+width="2293"
+height="294"
+srcset="https://dungbik.github.io/p/nb-til-1/image-1_hu_5d379c6e926cff92.png 480w, https://dungbik.github.io/p/nb-til-1/image-1_hu_c2e6d176a48e7b01.png 1024w"
+loading="lazy"
+alt="merge error message"
+class="gallery-image"
+data-flex-grow="779"
+data-flex-basis="1871px"
+>
+merge를 수행하다 충돌이 발생하면 수동으로 충돌 부분을 수정하고 반영한다.&lt;/p>
+&lt;h4 id="충돌이-발생하는-이유">충돌이 발생하는 이유
+&lt;/h4>&lt;p>같은 파일의 같은 위치에 코드가 변경되었기 때문이다.&lt;/p>
+&lt;h2 id="미니-프로젝트-팀--자기소개-웹페이지-만들기">미니 프로젝트 (팀 + 자기소개 웹페이지 만들기)
+&lt;/h2>&lt;p>오늘부터 9 to 9 본 캠프가 시작되었다.
+팀이 정해졌고 팀 이름, 소개를 정하고 역할 분담과 사용할 기술을 정하였으며 와이어프레임 설계까지 완료하였다.
+메인/상세 페이지로 나눠지는 간단한 페이지를 개발할 예정이고, 상세 페이지 내에 들어가는 방명록 파트의 HTML을 작성하는 부분을 맡았다.&lt;/p></description></item></channel></rss>
