@@ -9,6 +9,7 @@ categories:
   - til
 tags:
   - 스프링
+  - 트러블 슈팅
 ---
 
 ![복잡함을 다루기 위한 스프링의 전략](image.png)
