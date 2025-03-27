@@ -1,0 +1,307 @@
+<!doctype html><html lang=ko-kr dir=ltr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=description content="코드카타 최대로 할인 적용하기 Q. 다음과 같이 숫자로 이루어진 배열이 두 개가 있다. 하나는 상품의 가격을 담은 배열이고, 하나는 쿠폰을 담은 배열이다. 쿠폰의 할인율에 따라 상품의 가격을 할인 받을 수 있다. 이 때, 최대한 할인을 많이 받는다면 얼마를 내야 하는가? 단, 할인쿠폰은 한 제품에 한 번씩만 적용 가능하다.\n[30000, 2000, 1500000] # 상품의 가격\n[20, 40] # 쿠폰, 할인율의 단위는 % 입니다.\n가장 할인을 많이 받기 위해선 상품의 가격이 비싼 순으로 할인율이 높은 쿠폰을 적용하면 된다.\n그리고 상품의 수와 쿠폰의 가격이 같지 않기 때문에 할인을 적용할 때는 상품의 수 혹은 쿠폰 수 하나를 지정해놓고 반복을 하면 안되고 둘 중에 작은 숫자만큼 반복을 수행해야한다.\n"><title>내일배움캠프 - 8일차</title>
+<link rel=canonical href=https://dungbik.github.io/p/nb-til-8/><link rel=stylesheet href=/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css><meta property='og:title' content="내일배움캠프 - 8일차"><meta property='og:description' content="코드카타 최대로 할인 적용하기 Q. 다음과 같이 숫자로 이루어진 배열이 두 개가 있다. 하나는 상품의 가격을 담은 배열이고, 하나는 쿠폰을 담은 배열이다. 쿠폰의 할인율에 따라 상품의 가격을 할인 받을 수 있다. 이 때, 최대한 할인을 많이 받는다면 얼마를 내야 하는가? 단, 할인쿠폰은 한 제품에 한 번씩만 적용 가능하다.\n[30000, 2000, 1500000] # 상품의 가격\n[20, 40] # 쿠폰, 할인율의 단위는 % 입니다.\n가장 할인을 많이 받기 위해선 상품의 가격이 비싼 순으로 할인율이 높은 쿠폰을 적용하면 된다.\n그리고 상품의 수와 쿠폰의 가격이 같지 않기 때문에 할인을 적용할 때는 상품의 수 혹은 쿠폰 수 하나를 지정해놓고 반복을 하면 안되고 둘 중에 작은 숫자만큼 반복을 수행해야한다.\n"><meta property='og:url' content='https://dungbik.github.io/p/nb-til-8/'><meta property='og:site_name' content='Dungbik Blog'><meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:tag' content='내일배움캠프'><meta property='article:tag' content='본캠프'><meta property='article:published_time' content='2025-02-26T00:00:00+00:00'><meta property='article:modified_time' content='2025-02-26T00:00:00+00:00'><meta name=twitter:title content="내일배움캠프 - 8일차"><meta name=twitter:description content="코드카타 최대로 할인 적용하기 Q. 다음과 같이 숫자로 이루어진 배열이 두 개가 있다. 하나는 상품의 가격을 담은 배열이고, 하나는 쿠폰을 담은 배열이다. 쿠폰의 할인율에 따라 상품의 가격을 할인 받을 수 있다. 이 때, 최대한 할인을 많이 받는다면 얼마를 내야 하는가? 단, 할인쿠폰은 한 제품에 한 번씩만 적용 가능하다.\n[30000, 2000, 1500000] # 상품의 가격\n[20, 40] # 쿠폰, 할인율의 단위는 % 입니다.\n가장 할인을 많이 받기 위해선 상품의 가격이 비싼 순으로 할인율이 높은 쿠폰을 적용하면 된다.\n그리고 상품의 수와 쿠폰의 가격이 같지 않기 때문에 할인을 적용할 때는 상품의 수 혹은 쿠폰 수 하나를 지정해놓고 반복을 하면 안되고 둘 중에 작은 숫자만큼 반복을 수행해야한다.\n"><link rel="shortcut icon" href=/favicon.png></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label="메뉴 여닫기">
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src="https://avatars.githubusercontent.com/u/49610681?s=400&amp;u=c796432dbdd2e4d3a6e26c211a668c457f4e1fe0&amp;v=4" width=300 height=300 class=site-logo loading=lazy alt=Avatar>
+</a><span class=emoji>💻</span></figure><div class=site-meta><h1 class=site-name><a href=/>Dungbik Blog</a></h1><h2 class=site-description>기술 블로그</h2></div></header><ol class=menu-social><li><a href=https://github.com/dungbik target=_blank title=GitHub rel=me><svg class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+<span>Home</span></a></li><li><a href=/archives/><svg class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>Archives</span></a></li><li><a href=/search/><svg class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+<span>Search</span></a></li><li class=menu-bottom-section><ol class=menu><li id=dark-mode-toggle><svg class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<svg class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<span>다크 모드</span></li></ol></li></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">목차</h2><div class=widget--toc><nav id=TableOfContents><ol><li><a href=#코드카타>코드카타</a><ol><li><a href=#최대로-할인-적용하기>최대로 할인 적용하기</a></li><li><a href=#올바른-괄호>올바른 괄호</a></li><li><a href=#멜론-베스트-앨범-뽑기>멜론 베스트 앨범 뽑기</a></li></ol></li><li><a href=#모니터링>모니터링</a><ol><li><a href=#모니터링-3단계>모니터링 3단계</a></li><li><a href=#프로메테우스-그라파나>프로메테우스, 그라파나</a></li></ol></li></ol></nav></div></section></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/til/ style=background-color:#217493;color:#fff>TIL</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/p/nb-til-8/>내일배움캠프 - 8일차</a></h2></div><footer class=article-time><div><svg class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>2월 26, 2025</time></div><div><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>6 분 정도</time></div></footer></div></header><section class=article-content><h2 id=코드카타>코드카타</h2><h3 id=최대로-할인-적용하기>최대로 할인 적용하기</h3><blockquote><p>Q. 다음과 같이 숫자로 이루어진 배열이 두 개가 있다.
+하나는 상품의 가격을 담은 배열이고, 하나는 쿠폰을 담은 배열이다.
+쿠폰의 할인율에 따라 상품의 가격을 할인 받을 수 있다.
+이 때, 최대한 할인을 많이 받는다면 얼마를 내야 하는가?
+단, 할인쿠폰은 한 제품에 한 번씩만 적용 가능하다.</p></blockquote><blockquote><p>[30000, 2000, 1500000] # 상품의 가격<br>[20, 40] # 쿠폰, 할인율의 단위는 % 입니다.</p></blockquote><p>가장 할인을 많이 받기 위해선 상품의 가격이 비싼 순으로 할인율이 높은 쿠폰을 적용하면 된다.<br>그리고 상품의 수와 쿠폰의 가격이 같지 않기 때문에 할인을 적용할 때는 상품의 수 혹은 쿠폰 수 하나를 지정해놓고 반복을 하면 안되고 둘 중에 작은 숫자만큼 반복을 수행해야한다.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=k>def</span> <span class=nf>get_max_discounted_price</span><span class=p>(</span><span class=n>prices</span><span class=p>,</span> <span class=n>coupons</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=n>coupons</span><span class=o>.</span><span class=n>sort</span><span class=p>(</span><span class=n>reverse</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>prices</span><span class=o>.</span><span class=n>sort</span><span class=p>(</span><span class=n>reverse</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>price_index</span> <span class=o>=</span> <span class=mi>0</span>
+</span></span><span class=line><span class=cl>    <span class=n>coupon_index</span> <span class=o>=</span> <span class=mi>0</span>
+</span></span><span class=line><span class=cl>    <span class=n>max_discounted_price</span> <span class=o>=</span> <span class=mi>0</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>while</span> <span class=n>price_index</span> <span class=o>&lt;</span> <span class=nb>len</span><span class=p>(</span><span class=n>prices</span><span class=p>)</span> <span class=ow>and</span> <span class=n>coupon_index</span> <span class=o>&lt;</span> <span class=nb>len</span><span class=p>(</span><span class=n>coupons</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=n>max_discounted_price</span> <span class=o>+=</span> <span class=n>prices</span><span class=p>[</span><span class=n>price_index</span><span class=p>]</span> <span class=o>*</span> <span class=p>(</span><span class=mi>100</span> <span class=o>-</span> <span class=n>coupons</span><span class=p>[</span><span class=n>coupon_index</span><span class=p>])</span> <span class=o>/</span> <span class=mi>100</span>
+</span></span><span class=line><span class=cl>        <span class=n>price_index</span> <span class=o>+=</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl>        <span class=n>coupon_index</span> <span class=o>+=</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>while</span> <span class=n>price_index</span> <span class=o>&lt;</span> <span class=nb>len</span><span class=p>(</span><span class=n>prices</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=n>max_discounted_price</span> <span class=o>+=</span> <span class=n>prices</span><span class=p>[</span><span class=n>price_index</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>        <span class=n>price_index</span> <span class=o>+=</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=nb>int</span><span class=p>(</span><span class=n>max_discounted_price</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s2>&#34;정답 = 926000 / 현재 풀이 값 = &#34;</span><span class=p>,</span> <span class=n>get_max_discounted_price</span><span class=p>([</span><span class=mi>30000</span><span class=p>,</span> <span class=mi>2000</span><span class=p>,</span> <span class=mi>1500000</span><span class=p>],</span> <span class=p>[</span><span class=mi>20</span><span class=p>,</span> <span class=mi>40</span><span class=p>]))</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s2>&#34;정답 = 485000 / 현재 풀이 값 = &#34;</span><span class=p>,</span> <span class=n>get_max_discounted_price</span><span class=p>([</span><span class=mi>50000</span><span class=p>,</span> <span class=mi>1500000</span><span class=p>],</span> <span class=p>[</span><span class=mi>10</span><span class=p>,</span> <span class=mi>70</span><span class=p>,</span> <span class=mi>30</span><span class=p>,</span> <span class=mi>20</span><span class=p>]))</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s2>&#34;정답 = 1550000 / 현재 풀이 값 = &#34;</span><span class=p>,</span> <span class=n>get_max_discounted_price</span><span class=p>([</span><span class=mi>50000</span><span class=p>,</span> <span class=mi>1500000</span><span class=p>],</span> <span class=p>[]))</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s2>&#34;정답 = 1458000 / 현재 풀이 값 = &#34;</span><span class=p>,</span> <span class=n>get_max_discounted_price</span><span class=p>([</span><span class=mi>20000</span><span class=p>,</span> <span class=mi>100000</span><span class=p>,</span> <span class=mi>1500000</span><span class=p>],</span> <span class=p>[</span><span class=mi>10</span><span class=p>,</span> <span class=mi>10</span><span class=p>,</span> <span class=mi>10</span><span class=p>]))</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=올바른-괄호>올바른 괄호</h3><blockquote><p>Q. 괄호가 바르게 짝지어졌다는 것은 &lsquo;(&rsquo; 문자로 열렸으면 반드시 짝지어서 &lsquo;)&rsquo; 문자로 닫혀야 한다는 뜻이다. 예를 들어</p><p>()() 또는 (())() 는 올바르다.
+)()( 또는 (()( 는 올바르지 않다.</p><p>이 때, &lsquo;(&rsquo; 또는 &lsquo;)&rsquo; 로만 이루어진 문자열 s가 주어졌을 때, 문자열 s가 올바른 괄호이면 True 를 반환하고 아니라면 False 를 반환하시오.</p></blockquote><p>괄호가 바르게 짝지어졌는지 확인을 하기 위해서는 닫는 괄호가 나왔을 때, 직전에 나왔던 괄호가 열려있는지 확인해야한다.<br>즉, 배열로 생각했을 때 열린 괄호가 나오면 모두 저장하고 닫힌 괄호가 나왔을 때 가장 최근에 있던 열린 괄호를 삭제 하는 것을 반복하여 마지막에 배열이 비어있는지 여부를 확인하면 된다.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=k>def</span> <span class=nf>is_correct_parenthesis</span><span class=p>(</span><span class=n>string</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=n>stack</span> <span class=o>=</span> <span class=p>[]</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=nb>len</span><span class=p>(</span><span class=n>string</span><span class=p>)):</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=n>string</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>==</span> <span class=s2>&#34;(&#34;</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=n>stack</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>string</span><span class=p>[</span><span class=n>i</span><span class=p>])</span>
+</span></span><span class=line><span class=cl>        <span class=k>elif</span> <span class=n>string</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>==</span> <span class=s2>&#34;)&#34;</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=nb>len</span><span class=p>(</span><span class=n>stack</span><span class=p>)</span> <span class=o>==</span> <span class=mi>0</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                <span class=k>return</span> <span class=kc>False</span>
+</span></span><span class=line><span class=cl>            <span class=n>stack</span><span class=o>.</span><span class=n>pop</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=nb>len</span><span class=p>(</span><span class=n>stack</span><span class=p>)</span> <span class=o>!=</span> <span class=mi>0</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=kc>False</span>
+</span></span><span class=line><span class=cl>    <span class=k>else</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=kc>True</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s2>&#34;정답 = True / 현재 풀이 값 = &#34;</span><span class=p>,</span> <span class=n>is_correct_parenthesis</span><span class=p>(</span><span class=s2>&#34;(())&#34;</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s2>&#34;정답 = False / 현재 풀이 값 = &#34;</span><span class=p>,</span> <span class=n>is_correct_parenthesis</span><span class=p>(</span><span class=s2>&#34;)&#34;</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s2>&#34;정답 = False / 현재 풀이 값 = &#34;</span><span class=p>,</span> <span class=n>is_correct_parenthesis</span><span class=p>(</span><span class=s2>&#34;((())))&#34;</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s2>&#34;정답 = False / 현재 풀이 값 = &#34;</span><span class=p>,</span> <span class=n>is_correct_parenthesis</span><span class=p>(</span><span class=s2>&#34;())()&#34;</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s2>&#34;정답 = False / 현재 풀이 값 = &#34;</span><span class=p>,</span> <span class=n>is_correct_parenthesis</span><span class=p>(</span><span class=s2>&#34;((())&#34;</span><span class=p>))</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=멜론-베스트-앨범-뽑기>멜론 베스트 앨범 뽑기</h3><blockquote><p>Q. 멜론에서 장르 별로 가장 많이 재생된 노래를 두 개씩 모아 베스트 앨범을 출시하려 한다.</p><p>노래는 인덱스로 구분하며, 노래를 수록하는 기준은 다음과 같다.</p><ol><li><p>속한 노래가 많이 재생된 장르를 먼저 수록한다. (단, 각 장르에 속한 노래의 재생 수 총합은 모두 다르다.)</p></li><li><p>장르 내에서 많이 재생된 노래를 먼저 수록한다.</p></li><li><p>장르 내에서 재생 횟수가 같은 노래 중에서는 고유 번호가 낮은 노래를 먼저 수록한다.</p></li></ol><p>노래의 장르를 나타내는 문자열 배열 genres와 노래별 재생 횟수를 나타내는 정수 배열 plays가 주어질 때, 베스트 앨범에 들어갈 노래의 인덱스를 순서대로 반환하시오.</p></blockquote><p>각 장르에 속한 노래의 재생 수를 더하여 정렬을 하면 1번의 결과를 알 수 있다. 이를 쉽게 하기 위해선 딕셔너리를 활용해 key를 장르 value를 재생 수의 합으로 하면 된다.</p><p>그리고 2번의 결과를 알기 위해 딕셔너리를 활용해 key를 장르 value를 노래 고유 번호와 재생 수를 배열의 형태로 배열에 담는다.<br>그 후 value에 들어 있는 배열에서 재생 수를 기준으로 정렬을 하면 된다.<br>여기서 고유 번호가 낮은 노래의 처리를 하지 않은 이유는 <strong>정렬을 할 때 기준이 같다면 순서가 변하지 않기</strong> 떄문이다.</p><p>마지막 3번의 결과는 지금까지 구한 결과를 토대로 알 수 있다.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>from</span> <span class=nn>collections</span> <span class=kn>import</span> <span class=n>defaultdict</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>get_total_play</span><span class=p>(</span><span class=n>songs</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=nb>sum</span><span class=p>([</span><span class=n>x</span><span class=p>[</span><span class=mi>1</span><span class=p>]</span> <span class=k>for</span> <span class=n>x</span> <span class=ow>in</span> <span class=n>songs</span><span class=p>])</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>get_melon_best_album</span><span class=p>(</span><span class=n>genre_array</span><span class=p>,</span> <span class=n>play_array</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=n>music_dict</span> <span class=o>=</span> <span class=n>defaultdict</span><span class=p>(</span><span class=nb>list</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>song_id</span> <span class=o>=</span> <span class=mi>0</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=n>genre</span><span class=p>,</span> <span class=n>play</span> <span class=ow>in</span> <span class=nb>zip</span><span class=p>(</span><span class=n>genres</span><span class=p>,</span> <span class=n>plays</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=n>music_dict</span><span class=p>[</span><span class=n>genre</span><span class=p>]</span><span class=o>.</span><span class=n>append</span><span class=p>((</span><span class=n>song_id</span><span class=p>,</span> <span class=n>play</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>        <span class=n>song_id</span> <span class=o>+=</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>sorted_music_dict</span> <span class=o>=</span> <span class=nb>sorted</span><span class=p>(</span><span class=n>music_dict</span><span class=o>.</span><span class=n>items</span><span class=p>(),</span> <span class=n>key</span><span class=o>=</span><span class=k>lambda</span> <span class=n>x</span><span class=p>:</span> <span class=n>get_total_play</span><span class=p>(</span><span class=n>x</span><span class=p>[</span><span class=mi>1</span><span class=p>]),</span> <span class=n>reverse</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>answer</span> <span class=o>=</span> <span class=p>[]</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=n>_</span><span class=p>,</span> <span class=n>songs</span> <span class=ow>in</span> <span class=n>sorted_music_dict</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>        <span class=n>sorted_songs</span> <span class=o>=</span> <span class=nb>sorted</span><span class=p>(</span><span class=n>songs</span><span class=p>,</span> <span class=n>key</span><span class=o>=</span><span class=k>lambda</span> <span class=n>x</span><span class=p>:</span> <span class=n>x</span><span class=p>[</span><span class=mi>1</span><span class=p>],</span> <span class=n>reverse</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=n>answer</span><span class=o>.</span><span class=n>extend</span><span class=p>([</span><span class=n>x</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=k>for</span> <span class=n>x</span> <span class=ow>in</span> <span class=n>sorted_songs</span><span class=p>[</span><span class=mi>0</span><span class=p>:</span> <span class=nb>min</span><span class=p>(</span><span class=nb>len</span><span class=p>(</span><span class=n>songs</span><span class=p>),</span> <span class=mi>2</span><span class=p>)]])</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>answer</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s2>&#34;정답 = [4, 1, 3, 0] / 현재 풀이 값 = &#34;</span><span class=p>,</span> <span class=n>get_melon_best_album</span><span class=p>([</span><span class=s2>&#34;classic&#34;</span><span class=p>,</span> <span class=s2>&#34;pop&#34;</span><span class=p>,</span> <span class=s2>&#34;classic&#34;</span><span class=p>,</span> <span class=s2>&#34;classic&#34;</span><span class=p>,</span> <span class=s2>&#34;pop&#34;</span><span class=p>],</span> <span class=p>[</span><span class=mi>500</span><span class=p>,</span> <span class=mi>600</span><span class=p>,</span> <span class=mi>150</span><span class=p>,</span> <span class=mi>800</span><span class=p>,</span> <span class=mi>2500</span><span class=p>]))</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s2>&#34;정답 = [0, 6, 5, 2, 4, 1] / 현재 풀이 값 = &#34;</span><span class=p>,</span> <span class=n>get_melon_best_album</span><span class=p>([</span><span class=s2>&#34;hiphop&#34;</span><span class=p>,</span> <span class=s2>&#34;classic&#34;</span><span class=p>,</span> <span class=s2>&#34;pop&#34;</span><span class=p>,</span> <span class=s2>&#34;classic&#34;</span><span class=p>,</span> <span class=s2>&#34;classic&#34;</span><span class=p>,</span> <span class=s2>&#34;pop&#34;</span><span class=p>,</span> <span class=s2>&#34;hiphop&#34;</span><span class=p>],</span> <span class=p>[</span><span class=mi>2000</span><span class=p>,</span> <span class=mi>500</span><span class=p>,</span> <span class=mi>600</span><span class=p>,</span> <span class=mi>150</span><span class=p>,</span> <span class=mi>800</span><span class=p>,</span> <span class=mi>2500</span><span class=p>,</span> <span class=mi>2000</span><span class=p>]))</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=모니터링>모니터링</h2><h3 id=모니터링-3단계>모니터링 3단계</h3><ul><li>대시보드<ul><li>전체를 한눈에 볼 수 있는 가장 높은 뷰</li><li>마이크로미터, 프로메테우스, 그라파나 등</li><li>모니터링 대상<ul><li>시스템 메트릭</li><li>애플리케이션 메트릭</li><li>비즈니스 메트릭</li></ul></li></ul></li><li>애플리케이션 추적<ul><li>주로 각각의 HTTP 요청을 추적, 일부는 마이크로서비스 환경에서 분산 추적</li><li>핀포인트, 스카우트, 와탭, 제니퍼 등</li></ul></li><li>로그<ul><li>가장 자세한 추적 가능, 원하는대로 커스텀 가능</li><li>같은 HTTP 요청을 묶어서 확인할 수 있는 방법 중요 (MDC 적용)</li></ul></li></ul><p>각각 용도가 다르고, 관찰을 할 때는 전체에서 점점 좁게 보는 것이 좋다.</p><p>모니터링 툴에서 일정 이상 수치가 넘어가면 슬랙 혹은 문자 등으로 알람을 주는 것이 좋으며, 이 때의 알람은 경고/심각 수준으로 구분해서 관리하는 것이 좋다.</p><h3 id=프로메테우스-그라파나>프로메테우스, 그라파나</h3><p>모니터링 대시보드를 구축하기 위해서 프로메테우스와 그라파나를 설치하였다.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-yml data-lang=yml><span class=line><span class=cl><span class=nt>networks</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>common</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>driver</span><span class=p>:</span><span class=w> </span><span class=l>bridge</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>prometheus</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>image</span><span class=p>:</span><span class=w> </span><span class=l>prom/prometheus</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>container_name</span><span class=p>:</span><span class=w> </span><span class=l>prometheus</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>volumes</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=l>./prometheus/config:/etc/prometheus</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=l>prometheus-data:/prometheus</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>ports</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=m>9090</span><span class=p>:</span><span class=m>9090</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>command</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=s1>&#39;--storage.tsdb.path=/prometheus&#39;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=s1>&#39;--config.file=/etc/prometheus/prometheus.yml&#39;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>restart</span><span class=p>:</span><span class=w> </span><span class=l>always</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>networks</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=l>common</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>grafana</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>image</span><span class=p>:</span><span class=w> </span><span class=l>grafana/grafana</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>container_name</span><span class=p>:</span><span class=w> </span><span class=l>grafana</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>ports</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=m>3000</span><span class=p>:</span><span class=m>3000</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>volumes</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=l>grafana-data:/var/lib/grafana</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=l>./grafana/provisioning/:/etc/grafana/provisioning/</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>restart</span><span class=p>:</span><span class=w> </span><span class=l>always</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>depends_on</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=l>prometheus</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>networks</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=l>common</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>volumes</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>grafana-data</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>prometheus-data</span><span class=p>:</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><p>직접 관리하고 있는 Ubuntu 24.04 서버에 설치를 하였으며, 도커 컴포즈를 이용해 설치를 하였다.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-yml data-lang=yml><span class=line><span class=cl><span class=c># my global config</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>global</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>scrape_interval</span><span class=p>:</span><span class=w> </span><span class=l>15s</span><span class=w> </span><span class=c># Set the scrape interval to every 15 seconds. Default is every 1 minute.</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>evaluation_interval</span><span class=p>:</span><span class=w> </span><span class=l>15s</span><span class=w> </span><span class=c># Evaluate rules every 15 seconds. The default is every 1 minute.</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=c># scrape_timeout is set to the global default (10s).</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=c># Alertmanager configuration</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>alerting</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>alertmanagers</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span>- <span class=nt>static_configs</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span>- <span class=nt>targets</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=c># - alertmanager:9093</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=c># Load rules once and periodically evaluate them according to the global &#39;evaluation_interval&#39;.</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>rule_files</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=c># - &#34;first_rules.yml&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=c># - &#34;second_rules.yml&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=c># A scrape configuration containing exactly one endpoint to scrape:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=c># Here it&#39;s Prometheus itself.</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>scrape_configs</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=c># The job name is added as a label `job=&lt;job_name&gt;` to any timeseries scraped from this config.</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span>- <span class=nt>job_name</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;prometheus&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=c># metrics_path defaults to &#39;/metrics&#39;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=c># scheme defaults to &#39;http&#39;.</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>static_configs</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>targets</span><span class=p>:</span><span class=w> </span><span class=p>[</span><span class=s2>&#34;localhost:9090&#34;</span><span class=p>]</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span>- <span class=nt>job_name</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;mws-actuator&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>metrics_path</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;/actuator/prometheus&#39;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>scrape_interval</span><span class=p>:</span><span class=w> </span><span class=l>10s</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>static_configs</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>targets</span><span class=p>:</span><span class=w> </span><span class=p>[</span><span class=s1>&#39;ip:8080&#39;</span><span class=p>]</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><p>프로메테우스가 메트릭을 수집하여 저장을 해두고, 그라파나가 프로메테우스에 저장된 데이터를 가져와 보기 좋게 대시보드를 그려준다.<br>여기서 메트릭을 수집하는 대상은 스프링 부트로 개발된 웹 애플리케이션이며, 스프링 엑추에이터와 마이크로미터를 사용하여 프로메테우스와 연동을 시켜주었다.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>sudo ufw allow 9090/tcp
+</span></span><span class=line><span class=cl>sudo ufw allow 3000/tcp
+</span></span></code></pre></td></tr></table></div></div><p>그리고 외부에서 접속할 수 있도록 방화벽에서 해당 포트를 풀어주었다.</p><p><img src=/p/nb-til-8/image.png width=3828 height=1531 srcset="/p/nb-til-8/image_hu_c5b5f67bd362f276.png 480w, /p/nb-til-8/image_hu_b908a5558459be4e.png 1024w" loading=lazy alt=프로메테우스 class=gallery-image data-flex-grow=250 data-flex-basis=600px></p><p><img src=/p/nb-til-8/image-1.png width=3798 height=1837 srcset="/p/nb-til-8/image-1_hu_ad079e8dc38dd7f8.png 480w, /p/nb-til-8/image-1_hu_fa2e3751b20d3c01.png 1024w" loading=lazy alt=그라파나 class=gallery-image data-flex-grow=206 data-flex-basis=496px></p><p>정상적으로 동작하는 것을 확인하였다. 다음에 여유가 될 때, 애플리케이션 추적과 클라우드에서 관리하는 로그 쪽을 다뤄볼 예정이다.</p></section><footer class=article-footer><section class=article-tags><a href=/tags/%EB%82%B4%EC%9D%BC%EB%B0%B0%EC%9B%80%EC%BA%A0%ED%94%84/>내일배움캠프</a>
+<a href=/tags/%EB%B3%B8%EC%BA%A0%ED%94%84/>본캠프</a></section><section class=article-copyright><svg class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
+<span>Licensed under CC BY-NC-SA 4.0</span></section><section class=article-lastmod><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<span>마지막 수정: 2월 26, 2025 00:00 UTC</span></section></footer></article><aside class=related-content--wrapper><h2 class=section-title>관련 글</h2><div class=related-content><div class="flex article-list--tile"><article><a href=/p/nb-til-14/><div class=article-details><h2 class=article-title>내일배움캠프 - 14일차</h2></div></a></article><article><a href=/p/nb-til-12/><div class=article-details><h2 class=article-title>내일배움캠프 - 12일차</h2></div></a></article><article><a href=/p/nb-til-10/><div class=article-details><h2 class=article-title>내일배움캠프 - 10일차</h2></div></a></article><article><a href=/p/nb-til-9/><div class=article-details><h2 class=article-title>내일배움캠프 - 9일차</h2></div></a></article><article><a href=/p/nb-til-7/><div class=article-details><h2 class=article-title>내일배움캠프 - 7일차</h2></div></a></article></div></div></aside><script src=https://utteranc.es/client.js repo=dungbik/dungbik.github.io issue-term=pathname crossorigin=anonymous async></script><style>.utterances{max-width:unset}</style><script>let utterancesLoaded=!1;function setUtterancesTheme(e){let t=document.querySelector(".utterances iframe");t&&t.contentWindow.postMessage({type:"set-theme",theme:`github-${e}`},"https://utteranc.es")}addEventListener("message",e=>{if(e.origin!=="https://utteranc.es")return;utterancesLoaded=!0,setUtterancesTheme(document.documentElement.dataset.scheme)}),window.addEventListener("onColorSchemeChange",e=>{if(!utterancesLoaded)return;setUtterancesTheme(e.detail)})</script><footer class=site-footer><section class=copyright>&copy;
+2025 Dungbik Blog</section><section class=powerby><a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a>로 만듦<br><a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>의 <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.30.0>Stack</a></b> 테마 사용 중</section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js defer></script><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>

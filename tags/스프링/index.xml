@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>스프링 on Dungbik Blog</title><link>https://dungbik.github.io/tags/%EC%8A%A4%ED%94%84%EB%A7%81/</link><description>Recent content in 스프링 on Dungbik Blog</description><generator>Hugo -- gohugo.io</generator><language>ko-kr</language><lastBuildDate>Thu, 27 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://dungbik.github.io/tags/%EC%8A%A4%ED%94%84%EB%A7%81/index.xml" rel="self" type="application/rss+xml"/><item><title>Spring Filter 에서 예외 발생시 RestControllerAdvice 로 처리 안됨</title><link>https://dungbik.github.io/p/til-3/</link><pubDate>Thu, 27 Mar 2025 00:00:00 +0000</pubDate><guid>https://dungbik.github.io/p/til-3/</guid><description>&lt;h2 id="개요">개요
+&lt;/h2>&lt;p>JPA를 사용한 일정 관리 앱을 개발하던 중에 발생한 문제이다.&lt;/p>
+&lt;p>필터를 통해 세션에 정보가 있는지 여부로 로그인 여부를 판별하고 있다.&lt;/p>
+&lt;h2 id="트러블-슈팅">트러블 슈팅
+&lt;/h2>&lt;h3 id="배경">배경
+&lt;/h3>&lt;p>필터를 통해 세션에 정보가 있는지 여부로 로그인 여부를 판별하고 있다.&lt;/p>
+&lt;p>로그인이 안된 상태로 로그인 필수 path 에 접근시 예외를 던지게 해두었다.&lt;/p>
+&lt;p>그리고 해당 예외는 RestControllerAdvice 를 통해 예외를 처리하도록 해두었다.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-java" data-lang="java">&lt;span class="line">&lt;span class="cl">&lt;span class="kd">public&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kd">class&lt;/span> &lt;span class="nc">LoginFilter&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kd">implements&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">Filter&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="kd">private&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kd">static&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kd">final&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">String&lt;/span>&lt;span class="o">[]&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">PUBLIC_PATH_LIST&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="s">&amp;#34;/users/register&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s">&amp;#34;/users/login&amp;#34;&lt;/span>&lt;span class="p">};&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nd">@Override&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="kd">public&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kt">void&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nf">doFilter&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">ServletRequest&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">request&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">ServletResponse&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">response&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">FilterChain&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">filterChain&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kd">throws&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">IOException&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">ServletException&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">HttpServletRequest&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">req&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">HttpServletRequest&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">request&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">HttpServletResponse&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">res&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">HttpServletResponse&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">response&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">String&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">requestURI&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">req&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">getRequestURI&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="kt">boolean&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">isPrivatePath&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">!&lt;/span>&lt;span class="n">PatternMatchUtils&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">simpleMatch&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">PUBLIC_PATH_LIST&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">requestURI&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">if&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">isPrivatePath&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">HttpSession&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">session&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">req&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">getSession&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">if&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">session&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">==&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">null&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">||&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">session&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">getAttribute&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;userId&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">==&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">null&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">throw&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">RuntimeException&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Please login first&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">filterChain&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">doFilter&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">request&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">response&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="발단">발단
+&lt;/h3>&lt;p>개요와 같이 적용하고 실제로 로그인이 안된 상태에서 로그인 필수 path 에 접근하면 공통 예외 처리가 동작할 줄 알았다.
+하지만 RestControllerAdvice 를 통해 공통으로 예외를 처리해둔 곳이 기능하지 않는다.&lt;/p>
+&lt;h3 id="전개">전개
+&lt;/h3>&lt;p>이런 문제가 발생하는 이유는 RestControllerAdvice 는 컨트롤러에서 발생한 예외를 잡을 순 있지만,
+컨트롤러에 도달하기 전 필터에서 발생한 예외는 잡을 수 없기 때문이다.&lt;/p>
+&lt;p>이를 해결하기 위해 예외를 던지는 것이 아닌 응답에 예외를 바로 담도록 수정하였다.&lt;/p>
+&lt;h3 id="결말">결말
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;span class="lnt">34
+&lt;/span>&lt;span class="lnt">35
+&lt;/span>&lt;span class="lnt">36
+&lt;/span>&lt;span class="lnt">37
+&lt;/span>&lt;span class="lnt">38
+&lt;/span>&lt;span class="lnt">39
+&lt;/span>&lt;span class="lnt">40
+&lt;/span>&lt;span class="lnt">41
+&lt;/span>&lt;span class="lnt">42
+&lt;/span>&lt;span class="lnt">43
+&lt;/span>&lt;span class="lnt">44
+&lt;/span>&lt;span class="lnt">45
+&lt;/span>&lt;span class="lnt">46
+&lt;/span>&lt;span class="lnt">47
+&lt;/span>&lt;span class="lnt">48
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-java" data-lang="java">&lt;span class="line">&lt;span class="cl">&lt;span class="kd">public&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kd">class&lt;/span> &lt;span class="nc">LoginFilter&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kd">implements&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">Filter&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="kd">private&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kd">static&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kd">final&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">String&lt;/span>&lt;span class="o">[]&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">PUBLIC_PATH_LIST&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="s">&amp;#34;/users/register&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s">&amp;#34;/users/login&amp;#34;&lt;/span>&lt;span class="p">};&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nd">@Override&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="kd">public&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kt">void&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nf">doFilter&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">ServletRequest&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">request&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">ServletResponse&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">response&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">FilterChain&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">filterChain&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kd">throws&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">IOException&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">ServletException&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">HttpServletRequest&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">req&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">HttpServletRequest&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">request&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">HttpServletResponse&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">res&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">HttpServletResponse&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">response&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">String&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">requestURI&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">req&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">getRequestURI&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="kt">boolean&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">isPrivatePath&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">!&lt;/span>&lt;span class="n">PatternMatchUtils&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">simpleMatch&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">PUBLIC_PATH_LIST&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">requestURI&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">if&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">isPrivatePath&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">HttpSession&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">session&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">req&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">getSession&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">if&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">session&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">==&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">null&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">||&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">session&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">getAttribute&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;userId&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">==&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">null&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">exceptionHandler&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">requestURI&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">res&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">return&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">filterChain&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">doFilter&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">request&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">response&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="kd">private&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kt">void&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nf">exceptionHandler&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">String&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">requestURI&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">HttpServletResponse&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">res&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">res&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">setStatus&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">HttpStatus&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">UNAUTHORIZED&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">value&lt;/span>&lt;span class="p">());&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">res&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">setContentType&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;application/json&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">res&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">setCharacterEncoding&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;UTF-8&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">try&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">ObjectMapper&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">objectMapper&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">ObjectMapper&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">objectMapper&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">registerModule&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">JavaTimeModule&lt;/span>&lt;span class="p">());&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">String&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">json&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">objectMapper&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">writeValueAsString&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">ErrorResponse&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">of&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">HttpStatus&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">UNAUTHORIZED&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="s">&amp;#34;Please log in and try again.&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">requestURI&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">res&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">getWriter&lt;/span>&lt;span class="p">().&lt;/span>&lt;span class="na">write&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">json&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">catch&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">Exception&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">e&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">log&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">error&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;LoginFilter - exceptionHandler {}&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">e&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">getMessage&lt;/span>&lt;span class="p">());&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>최종적으로 위와 같은 코드를 작성하였다.&lt;/p>
+&lt;p>로그인이 안된 상태에서 로그인 필수 path 에 접근해보면 정상적으로 공통 오류 메시지가 응답되는 것을 확인할 수 있다.&lt;/p>
+&lt;h2 id="마무리">마무리
+&lt;/h2>&lt;p>이번 트러블 슈팅을 요약하면 다음과 같습니다.&lt;/p>
+&lt;ol>
+&lt;li>웹 애플리케이션을 작업하다 보면 필터에서 예외를 처리해야하는 경우가 생깁니다.&lt;/li>
+&lt;li>스프링 시큐리티를 사용할 경우 처리할 수 있는 방법이 따로 있습니다. 하지만 이번 경우에는 스프링 시큐리티를 사용하지 않기 때문에 다른 방법으로 해결해야 합니다.&lt;/li>
+&lt;li>이번 경우에는 필터에서 예외를 던지는 것이 아닌 응답에 바로 예외 공통 메시지를 넣음으로써 해결이 되었습니다.&lt;/li>
+&lt;/ol></description></item><item><title>엔티티에 없는 정보까지 필요한 경우의 고민</title><link>https://dungbik.github.io/p/til-2/</link><pubDate>Thu, 20 Mar 2025 00:00:00 +0000</pubDate><guid>https://dungbik.github.io/p/til-2/</guid><description>&lt;h2 id="개요">개요
+&lt;/h2>&lt;p>일정 관리 앱을 개발하던 중에 발생한 문제이다.&lt;/p>
+&lt;p>일정을 조회하는데 사용자 정보까지 필요한 상황이다.&lt;/p>
+&lt;h2 id="트러블-슈팅">트러블 슈팅
+&lt;/h2>&lt;h3 id="배경">배경
+&lt;/h3>&lt;p>현재 일정 엔티티에는 사용자의 정보는 없고 사용자의 id 필드만 가지고 있다.&lt;/p>
+&lt;h3 id="발단">발단
+&lt;/h3>&lt;p>일정을 조회했을 때 id 뿐만이 아닌 사용자의 다른 정보들도 응답에 넣어주려고 한다.&lt;/p>
+&lt;p>현재는 일정을 조회했을 때 사용자에 관한 정보는 사용자의 id만 알 수 있는 상태이다.&lt;/p>
+&lt;h3 id="전개">전개
+&lt;/h3>&lt;p>이를 해결하기 위해서는 두가지의 방법이 있을 것 같다.&lt;/p>
+&lt;ol>
+&lt;li>JOIN 을 통해 한번의 조회문으로 사용자의 id가 일치하는 사용자의 정보를 같이 조회한다.&lt;/li>
+&lt;li>일정을 조회하고 사용자의 id로 사용자 정보를 한번 더 조회해서 병합한다.&lt;/li>
+&lt;/ol>
+&lt;h3 id="결말">결말
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;span class="lnt">34
+&lt;/span>&lt;span class="lnt">35
+&lt;/span>&lt;span class="lnt">36
+&lt;/span>&lt;span class="lnt">37
+&lt;/span>&lt;span class="lnt">38
+&lt;/span>&lt;span class="lnt">39
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-java" data-lang="java">&lt;span class="line">&lt;span class="cl">&lt;span class="cm">/**
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cm"> * 검색 쿼리를 동적으로 생성
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cm"> * @param cond 검색 조건
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cm"> * @return 검색을 수행하는 쿼리문
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cm"> */&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="kd">private&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">String&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nf">createSearchQuery&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">ScheduleSearchCond&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">cond&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">String&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">sql&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s">&amp;#34;SELECT DISTINCT s.id, u.email, u.name, s.task, s.created_at, s.updated_at FROM schedule s JOIN user u ON u.id = s.user_id&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">if&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">StringUtils&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">hasText&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">cond&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">getUsername&lt;/span>&lt;span class="p">()))&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">sql&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">+=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s">&amp;#34; AND u.name like concat(&amp;#39;%&amp;#39;, :username, &amp;#39;%&amp;#39;)&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">if&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">cond&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">getUpdatedAt&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">!=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">null&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">sql&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">+=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s">&amp;#34; WHERE DATE(s.updated_at) = :updatedAt&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">if&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">cond&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">getUserId&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">!=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">null&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">sql&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">+=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s">&amp;#34; AND s.user_id = :userId&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">sql&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">+=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s">&amp;#34; ORDER BY s.updated_at DESC LIMIT :limit OFFSET :offset&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">return&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">sql&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="cm">/**
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cm"> * 작성자 정보를 포함한 일정 정보를 만드는 Mapper
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cm"> * @return 작성자 정보를 포함한 일정 정보를 만드는 Mapper
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cm"> */&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="kd">private&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">RowMapper&lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="n">ScheduleResponse&lt;/span>&lt;span class="o">&amp;gt;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nf">scheduleResponseRowMapper&lt;/span>&lt;span class="p">()&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">return&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">((&lt;/span>&lt;span class="n">rs&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">rowNum&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">ScheduleResponse&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">response&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">ScheduleResponse&lt;/span>&lt;span class="p">();&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">response&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">setScheduleId&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">rs&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">getLong&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;s.id&amp;#34;&lt;/span>&lt;span class="p">));&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">response&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">setUser&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">UserResponse&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">rs&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">getLong&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;u.id&amp;#34;&lt;/span>&lt;span class="p">),&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">rs&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">getString&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;u.email&amp;#34;&lt;/span>&lt;span class="p">),&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">rs&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">getString&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;u.name&amp;#34;&lt;/span>&lt;span class="p">)));&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">response&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">setTask&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">rs&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">getString&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;s.task&amp;#34;&lt;/span>&lt;span class="p">));&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">response&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">setCreatedAt&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">rs&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">getTimestamp&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;s.created_at&amp;#34;&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="na">toLocalDateTime&lt;/span>&lt;span class="p">());&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">response&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">setUpdatedAt&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">rs&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">getTimestamp&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;s.updated_at&amp;#34;&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="na">toLocalDateTime&lt;/span>&lt;span class="p">());&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">return&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">response&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">});&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>최종적으로 위와 같은 코드를 작성하였다.&lt;/p>
+&lt;p>JOIN 을 통해 사용자의 정보까지 같이 조회한 후 사용자의 정보를 포함한 일정 정보를 얻을 수 있도록 하였다.&lt;/p>
+&lt;h2 id="마무리">마무리
+&lt;/h2>&lt;p>이번 트러블 슈팅을 요약하면 다음과 같습니다.&lt;/p>
+&lt;ol>
+&lt;li>웹 애플리케이션을 작업하다 보면 다수의 엔티티를 병합하여 사용해야 하는 경우가 생깁니다.&lt;/li>
+&lt;li>이 때 우리가 생각할 수 있는 방법에는 JOIN 활용 혹은 따로 조회 후 병합 등 여러가지 방법이 있을 수 있습니다.&lt;/li>
+&lt;li>이번 경우에는 2번 호출하는 것 보단 1번의 호출로 조회할 수 있는 것이 좋을 것 같아 JOIN 을 활용하였습니다.&lt;/li>
+&lt;/ol></description></item><item><title>복잡함을 다루기 위한 스프링의 전략</title><link>https://dungbik.github.io/p/til-1/</link><pubDate>Tue, 18 Mar 2025 00:00:00 +0000</pubDate><guid>https://dungbik.github.io/p/til-1/</guid><description>&lt;p>&lt;img src="https://dungbik.github.io/p/til-1/image.png"
+width="1838"
+height="779"
+srcset="https://dungbik.github.io/p/til-1/image_hu_95506b5a052fedf1.png 480w, https://dungbik.github.io/p/til-1/image_hu_cd8153bf5368ac51.png 1024w"
+loading="lazy"
+alt="복잡함을 다루기 위한 스프링의 전략"
+class="gallery-image"
+data-flex-grow="235"
+data-flex-basis="566px"
+>&lt;/p>
+&lt;p>비즈니스 로직을 담은 &lt;strong>애플리케이션 핵심 코드&lt;/strong>와 엔터프라이즈 기술을 처리하는 코드를 분리시킨다.&lt;/p>
+&lt;p>각각의 복잡함을 효과적으로 공략하기 위해 &lt;strong>POJO와 함께 스프링 3대 핵심 기술&lt;/strong>을 사용한다.&lt;/p>
+&lt;p>이 전략이 효과적으로 적용되려면 반드시 &lt;strong>좋은 객체 지향 설계&lt;/strong>가 바탕이 되어야 한다.&lt;/p>
+&lt;h2 id="plain-old-java-object-pojo">Plain Old Java Object (POJO)
+&lt;/h2>&lt;p>객체 지향적 원리에 충실하고 특정 규약과 환경에 종속되지 않게 재활용될 수 있는 방식으로 설계된 객체&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-java" data-lang="java">&lt;span class="line">&lt;span class="cl">&lt;span class="kn">import&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nn">javax.jms.MessageListener&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="kn">import&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nn">javax.jms.Message&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="kn">import&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nn">javax.jms.JMSException&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="kd">public&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kd">class&lt;/span> &lt;span class="nc">OrderProcesser&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kd">implements&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">MessageListener&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nd">@Override&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="kd">public&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kt">void&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nf">onMessage&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">Message&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">message&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">if&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">message&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">instanceof&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">TextMessage&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">try&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">OrderPlaced&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">event&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">OrderPlaced&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="na">fromJson&lt;/span>&lt;span class="p">(((&lt;/span>&lt;span class="n">TextMessage&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">message&lt;/span>&lt;span class="p">).&lt;/span>&lt;span class="na">getText&lt;/span>&lt;span class="p">());&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="c1">// 주문 접수 처리하기&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">catch&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">JMSException&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">error&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">throw&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">RuntimeException&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;The message could not be read.&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">error&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">else&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">throw&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">new&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">IllegalArgumentException&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Message must be of type TextMessage&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>저수준의 기술과 환경에 종속적인 코드와 비즈니스 로직이 섞여 있어서 읽고 이해하기도 어려우며, 검증이나 테스트 작성에도 어려움이 있으므로 유지 보수에 어려움이 있다.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-java" data-lang="java">&lt;span class="line">&lt;span class="cl">&lt;span class="kn">import&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nn">org.springframework.jms.annotation.JmsListener&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="kd">public&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kd">class&lt;/span> &lt;span class="nc">OrderProcesser&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nd">@JmsListener&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">destination&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s">&amp;#34;pos&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="kd">public&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kt">void&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nf">accept&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">OrderPlaced&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">event&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="c1">// 주문 접수 처리하기&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="p">}&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="inversion-of-control-ioc">Inversion Of Control (IoC)
+&lt;/h2>&lt;p>프로그램 제어 흐름 구조가 뒤바뀌는 것&lt;/p>
+&lt;p>다른 객체를 직접 생성하거나 제어하는 것이 아니라 외부에서 관리하는 객체를 가져와 사용하는 것&lt;/p>
+&lt;p>스프링에선 외부에서 객체를 관리하는 것은 &lt;strong>스프링 컨테이너&lt;/strong>, 관리되는 객체를 &lt;strong>빈&lt;/strong> 이라고 함&lt;/p>
+&lt;p>필요한 이유&lt;/p>
+&lt;ul>
+&lt;li>객체지향 원칙을 잘 지키기 위해&lt;/li>
+&lt;li>역할과 관심을 분리하여 응집도는 높이고 결합도는 낮추며, 변경에 유연한 코드를 작성할 수 있는 구조로 만들 수 있기 때문&lt;/li>
+&lt;/ul>
+&lt;h2 id="dependency-injection-di">Dependency Injection (DI)
+&lt;/h2>&lt;p>의존 관계에 있는 오브젝트를 직접 생성하는 게 아닌 외부에서 생성 후 주입 시켜주는 방식&lt;/p>
+&lt;p>모듈 간의 결합도가 낮아지고 유연성이 높아짐&lt;/p>
+&lt;p>스프링 IoC 기능의 대표적인 동작 원리&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>의존 관계 주입 방법&lt;/th>
+&lt;th>설명&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;strong>constructor&lt;/strong>&lt;/td>
+&lt;td>&lt;strong>생성자를 통해 의존 관계를 주입한다.&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>setter&lt;/td>
+&lt;td>setter 메서드를 통해 의존 관계를 주입한다.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>field&lt;/td>
+&lt;td>스프링에서 @autowired 어노테이션이 붙은 필드에 의존 관계룰 주입한다.&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>생성자 주입이 선호된다&lt;/p>
+&lt;ul>
+&lt;li>객체의 불변성 확보
+&lt;ul>
+&lt;li>의존 관계 주입이 생성자 호출시 최초 1회만 이루어지기 때문에 불변성을 확보 가능&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>NullPointerException 방지
+&lt;ul>
+&lt;li>의존 관계가 설정되지 않으면 컴파일 타임에 알 수 있음&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>순환 참조 방지
+&lt;ul>
+&lt;li>순환 참조 감지 기능을 제공&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>테스트 코드 작성에 용이&lt;/li>
+&lt;/ul>
+&lt;h2 id="aspect-oriented-programming-aop">Aspect Oriented Programming (AOP)
+&lt;/h2>&lt;p>횡단 관심사(cross-cutting concern)의 분리를 허용함으로써 모듈성을 증가시키는 것이 목적인 프로그래밍 패러다임&lt;/p>
+&lt;p>횡단 관심사(cross-cutting concern)&lt;/p>
+&lt;ul>
+&lt;li>소프트웨어 개발에서 핵심 기능 이외의 공통적인 로직이나 기능&lt;/li>
+&lt;li>여러 모듈 또는 객체에서 반복적으로 나타나며, 여러 부분에 걸쳐 퍼져 있는 경우가 많음&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://dungbik.github.io/p/til-1/image-1.png"
+width="1888"
+height="920"
+srcset="https://dungbik.github.io/p/til-1/image-1_hu_4f0fadb072276a4c.png 480w, https://dungbik.github.io/p/til-1/image-1_hu_e19102b16f9600ec.png 1024w"
+loading="lazy"
+alt="AOP"
+class="gallery-image"
+data-flex-grow="205"
+data-flex-basis="492px"
+>&lt;/p>
+&lt;p>횡단 관심사를 모듈화하여 코드의 중복을 줄이고 유지 보수를 쉽게 해줌&lt;/p>
+&lt;p>스프링 AOP&lt;/p>
+&lt;ul>
+&lt;li>Proxy를 기반으로 한 &lt;strong>Runtime Weaving&lt;/strong> 방식이다
+&lt;ul>
+&lt;li>&lt;strong>Runtime Weaving&lt;/strong>: 런타임시 target 객체를 새로운 프록시 객체로 적용시키는 과정&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>스프링 Bean에만 적용할 수 있으며 모든 AOP 기능을 제공하는 것이 목적이 아닌 &lt;strong>중복 코드, 프록시 클래스 작성의 번거로움 등의 문제를 해결&lt;/strong>하기 위한 솔루션을 제공하는 것&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://dungbik.github.io/p/til-1/image-2.png"
+width="1767"
+height="930"
+srcset="https://dungbik.github.io/p/til-1/image-2_hu_bcde69fb31b0d6ab.png 480w, https://dungbik.github.io/p/til-1/image-2_hu_133e433c514effd2.png 1024w"
+loading="lazy"
+alt="AOP Proxy"
+class="gallery-image"
+data-flex-grow="190"
+data-flex-basis="456px"
+>&lt;/p>
+&lt;ul>
+&lt;li>Dynmic Proxy
+&lt;ul>
+&lt;li>Interface를 기반으로 Proxy 생성&lt;/li>
+&lt;li>Reflection 사용&lt;/li>
+&lt;li>기본 생성 전략&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>CGLIB Proxy
+&lt;ul>
+&lt;li>바이트코드 생성 기술을 이용해 상속 기반으로 Proxy 생성&lt;/li>
+&lt;li>final 객체 혹은 private 접근자로 된 메서드는 상속이 지원되지 않기 때문에 사용 불가&lt;/li>
+&lt;li>성능이 좀 더 우세&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="portable-service-abstraction-psa">Portable Service Abstraction (PSA)
+&lt;/h2>&lt;p>환경과 변화와 관계없이 일관된 방식의 기술로의 접근 환경을 제공하는 추상화 구조&lt;/p>
+&lt;p>엔터프라이즈 애플리케이션에 사용되는 다양한 기술의 서비스 추상화가 제공됨&lt;/p>
+&lt;ul>
+&lt;li>대표적으로 트랜잭션, 캐시, 메일, 메시징 OXM (Object/XML Mapping) 등이 있다.&lt;/li>
+&lt;/ul>
+&lt;p>제어의 역전 (Inversion Of Control; IoC) 원리를 통해 POJO에게 제공됨&lt;/p>
+&lt;p>&lt;img src="https://dungbik.github.io/p/til-1/image-3.png"
+width="1704"
+height="867"
+srcset="https://dungbik.github.io/p/til-1/image-3_hu_36f6ac3411a7bdbd.png 480w, https://dungbik.github.io/p/til-1/image-3_hu_d60da53d167ee346.png 1024w"
+loading="lazy"
+alt="PSA Example"
+class="gallery-image"
+data-flex-grow="196"
+data-flex-basis="471px"
+>&lt;/p></description></item></channel></rss>
